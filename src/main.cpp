@@ -2,14 +2,24 @@
 
 void on(DigitalOut color)
 {
-   color.write(0);
-   wait(0.5);
+   /*45 flashes per min
+     0.75 flashes per second
+     = 1/0.75 = 1.333Hz
+  */
+
+   //float flashRate = 1;   //1Hz
+   //float flashRate = 0.1; //10Hz
+   float flashRate = 0.75;  //1.3333Hz
+
+   color.write(0);          //This just writes 0 on 1 off
+   wait(flashRate);         //How long to hold the flash?
 }
 
 void off(DigitalOut color)
 {
+
     color.write(1);
-    wait(0.5);
+    wait(0.75);              //set manually
 }
 
 int main()
